@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const { Schema } = mongoose;
 
 const userSchema = mongoose.Schema(
   {
@@ -14,18 +16,18 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      trim: true
+      trim: true,
     },
     email: {
       type: String,
       // required: true,
-      // unique: true,
-      // trim: true,
-      // lowercase: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
     },
     password: {
       type: String,
-      // required: true,
+      required: true,
       trim: true,
       minlength: 8,
     },
@@ -44,6 +46,11 @@ const userSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+// userSchema.methods.isPasswordMatch = async function (password) {
+//   const user = this;
+//   return bcrypt.compare(password, user.password);
+// };
 
 const User = mongoose.model("User", userSchema);
 

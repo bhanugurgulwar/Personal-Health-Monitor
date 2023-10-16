@@ -1,6 +1,7 @@
 const User = require("../models/users.model");
 
 const createUser = (userbody) => {
+  console.log(userbody);
   return User.create(userbody);
 };
 
@@ -11,9 +12,8 @@ const getUserByEmail = async (email) => {
 };
 
 const getUserByUserName = async (userName) => {
-  console.log("uservice ",userName)
   return User.find({
-    userName:userName
+    userName: userName,
   }).populate();
 };
 
