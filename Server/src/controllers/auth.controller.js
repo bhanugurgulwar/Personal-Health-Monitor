@@ -18,11 +18,12 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { email, password } = req.body;
-  const user = await authService.loginUserWithEmailAndPassword(email, password);
+  const { userName, password } = req.body;
+  console.log("auth controller",req.body)
+  const user = await authService.loginUserWithEmailAndPassword(userName, password);
   try {
-    console.log(loginBody);
-    res.send({
+    console.log("login controlller",user);
+    res.send({        
       user,
     });
   } catch (error) {

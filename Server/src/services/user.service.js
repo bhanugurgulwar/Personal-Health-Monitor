@@ -10,7 +10,15 @@ const getUserByEmail = async (email) => {
   });
 };
 
+const getUserByUserName = async (userName) => {
+  console.log("uservice ",userName)
+  return User.find({
+    userName:userName
+  }).populate();
+};
+
 module.exports = {
-  getUserByEmail,
   createUser,
+  getUserByEmail,
+  getUserByUserName,
 };
