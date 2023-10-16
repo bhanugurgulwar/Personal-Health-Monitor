@@ -19,6 +19,15 @@ const register = async (req, res) => {
 
 };
 
+const login = async(req,res) => {
+  const loginBody = req.body;
+  try {
+    console.log(loginBody);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   register,
 };

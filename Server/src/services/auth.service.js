@@ -9,4 +9,8 @@ const createUser = (userbody) => {
     return  User.create(userbody);
 }
 
+const loginUser = (loginBody) => {
+    
+}
+
 module.exports = { createUser };
