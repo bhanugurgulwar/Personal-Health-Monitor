@@ -1,33 +1,36 @@
 // const httpStatus = require("http-status");
-const { authService } = require('../services/');
+const { authService, userService } = require("../services/index");
+const ApiError = require("../utils/ApiError");
 
-// const User  = require("../models");
-
-
+const User = require("../models");
 
 const register = async (req, res) => {
   const userbody = req.body;
   try {
     console.log(userbody);
-    const user = await authService.createUser(userbody);
-    console.log('user',user)
-    res.status(201).json({user});
+    const user = await userService.createUser(userbody);
+    console.log("user", user);
+    res.status(201).json({ user });
   } catch (error) {
-    console.log(error)
-    res.status(400).json({message:"user not registered"})
+    console.log(error);
+    res.status(400).json({ message: "user not registered" });
   }
-
 };
 
-const login = async(req,res) => {
-  const loginBody = req.body;
+const login = async (req, res) => {
+  const { email, password } = req.body;
+  const user = await authService.loginUserWithEmailAndPassword(email, password);
   try {
     console.log(loginBody);
+    res.send({
+      user,
+    });
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 module.exports = {
   register,
+  login,
 };
