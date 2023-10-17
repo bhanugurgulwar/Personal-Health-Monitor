@@ -1,31 +1,31 @@
 const httpStatus = require("http-status");
 const { authService, userService } = require("../services/index");
 const ApiError = require("../utils/ApiError");
+const catchAsync = require("../utils/catchAsync");
 
 const User = require("../models");
 
-const register = async (req, res) => {
+const register = catchAsync(async (req, res, next) => {
   const userbody = req.body;
-  try {
-    const user = await userService.createUser(userbody);
-    res.status(201).json({ user });
-  } catch (error) {
-    throw new ApiError(httpStatus.BAD_REQUEST, error);
-  }
-};
 
-const login = async (req, res) => {
+  const user = await userService.createUser(userbody);
+  if (!user) {
+    return next(new ApiError(httpStatus.BAD_REQUEST, error));
+  }
+  res.status(httpStatus.CREATED).send(user);
+});
+
+const login = catchAsync(async (req, res, next) => {
   const { userName, password } = req.body;
+
   const user = await authService.loginWithUserNameAndPassword(
     userName,
     password
   );
-  try {
-    res.send({
-      user,
-    });
-  } catch (error) {}
-};
+  res.send({
+    user,
+  });
+});
 
 module.exports = {
   register,

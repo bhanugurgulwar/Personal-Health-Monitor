@@ -1,20 +1,22 @@
 const User = require("../models/users.model");
 
 const createUser = (userbody) => {
-  console.log(userbody);
   return User.create(userbody);
 };
 
 const getUserByEmail = async (email) => {
-  return User.findOne({
+  const user = await User.findOne({
     email,
   });
+  return user;
 };
 
 const getUserByUserName = async (userName) => {
-  return User.find({
+  const user = await User.findOne({
     userName: userName,
-  }).populate();
+  });
+
+  return user;
 };
 
 module.exports = {

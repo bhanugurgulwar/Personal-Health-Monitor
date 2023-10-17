@@ -1,15 +1,13 @@
 // const httpStatus = require("http-status");
 const httpStatus = require("http-status");
 const userService = require("./user.service");
-const ApiError = require("../utils/ApiError");
+const AppError = require("./../utils/ApiError");
 
 const loginWithUserNameAndPassword = async (userName, password) => {
   const user = await userService.getUserByUserName(userName);
-  if (!user) {
-    throw new ApiError(
-      httpStatus.UNAUTHORIZED,
-      "Incorrect username or password"
-    );
+
+  if (!user || !(await user.isPasswordMatch(password))) {
+    throw new AppError("Invalid user", httpStatus.UNAUTHORIZED);
   }
   return await user;
 };

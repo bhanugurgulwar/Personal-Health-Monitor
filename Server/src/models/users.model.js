@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      minlength: 8,
+      minlengtuserNameh: 8,
     },
     isEmailVerified: {
       type: Boolean,
@@ -47,10 +47,20 @@ const userSchema = mongoose.Schema(
   }
 );
 
-// userSchema.methods.isPasswordMatch = async function (password) {
-//   const user = this;
-//   return bcrypt.compare(password, user.password);
-// };
+userSchema.methods.isPasswordMatch = async function (password) {
+  const user = this;
+  return bcrypt.compare(password, user.password);
+};
+
+userSchema.pre("save", async function (next) {
+  const user = this;
+
+  if (user.isModified("password")) {
+    user.password = await bcrypt.hash(user.password, 12);
+  }
+
+  next();
+});
 
 const User = mongoose.model("User", userSchema);
 
