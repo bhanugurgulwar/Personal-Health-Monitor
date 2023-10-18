@@ -1,0 +1,7 @@
+{
+  "name": "personal-health-monitor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

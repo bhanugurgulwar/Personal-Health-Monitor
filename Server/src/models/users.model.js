@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const { Schema } = mongoose;
 
+const gender =['male','female'];
+
 const userSchema = mongoose.Schema(
   {
     firstName: {
@@ -18,9 +20,18 @@ const userSchema = mongoose.Schema(
       unique: true,
       trim: true,
     },
+    gender:{
+      type: String,
+      enum: gender,
+      required:true
+    },
+    dob:{
+      type:Date,
+      required:true
+    },
     email: {
       type: String,
-      // required: true,
+      required: true,
       unique: true,
       trim: true,
       lowercase: true,
