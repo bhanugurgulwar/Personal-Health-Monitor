@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema(
     },
     userName: {
       type: String,
-      required: true,
+      required: [true, "Username is required!"],
       unique: true,
       trim: true,
     },
@@ -38,9 +38,8 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Password is required!"],
       trim: true,
-      minlengtuserNameh: 8,
     },
     isEmailVerified: {
       type: Boolean,

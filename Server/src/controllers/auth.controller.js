@@ -6,9 +6,9 @@ const catchAsync = require("../utils/catchAsync");
 const User = require("../models");
 
 const register = catchAsync(async (req, res, next) => {
-  const userbody = req.body;
+  const userBody = req.body;
 
-  const user = await userService.createUser(userbody);
+  const user = await userService.createUser(userBody);
   if (!user) {
     return next(new ApiError(httpStatus.BAD_REQUEST, error));
   }
