@@ -5,38 +5,31 @@ import { TabsPage } from './tabs.page';
 // import { DashboardPage } from './Pages/dashboard/dashboard.page';
 
 const routes: Routes = [
+        {
+          path: 'dashboard',
+          loadChildren: () => import('./Pages/dashboard/dashboard.module').then(m=>m.DashboardPageModule)
+        },
+        // {
+        //   path: 'tasks',
+        //   // loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        // },
+        {
+          path: 'track',
+          loadChildren: () => import('./Pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
+        },
+        {
+          path: 'profile',
+          loadChildren: () => import('./Pages/profile/profile.module').then(m => m.ProfilePageModule)
+        },
   {
-    path: '/',
-    component: TabsPage,
-    children: [
-      {
-        path: 'dashboard',
-        loadChildren: () => import('./Pages/dashboard/dashboard.module').then(m=>m.DashboardPageModule)
-      },
-      {
-        path: 'tasks',
-        // loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-      },
-      {
-        path: 'track',
-        // loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
-      },
-      {
-        path: 'profile',
-        loadChildren: () => import('./Pages/profile/profile.module').then(m => m.ProfilePageModule)
-      },
-      {
-        path: '',
-        redirectTo: 'lists',
-        pathMatch: 'full'
-      }
-    ]
+    path: 'notifications',
+    loadChildren: () => import('./Pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
-  {
-    path: '',
-    redirectTo: 'tabs',
-    pathMatch: 'full',
-  }
+        // {
+        //   path: '',
+        //   redirectTo: 'lists',
+        //   pathMatch: 'full'
+        // }
 ];
 
 
