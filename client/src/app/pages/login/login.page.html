@@ -1,47 +1,73 @@
 <ion-content [fullscreen]="true" color="dark">
-  <div class="d-flex justify-content-center">
-    <div class="text-center mt-4">
-      <div>Hey there,</div>
-      <div class="text2">Welcome Back</div>
-    </div>
-  </div>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-margin-top" size="6">
+        <div class="ion-text-center">
+          <p class="mb-0">Hey there,</p>
+          <p class="text2">Welcome Back</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <div class="d-flex justify-content-center mt-4">
-
-    <div>
-
+  <div class="d-flex justify-content-center mt-3">
+    <div class="widthStyle">
       <form>
-        <div class="mb-3">
-          <input type="email" placeholder="Email" class="form-control formStyle" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        
-        <div class="mb-3">
-          <input type="password" placeholder="Password" class="form-control formStyle" id="exampleInputPassword1">
-        </div>
-        
-        <div class="forgetStyle text-center">Forgot your password?</div>
+        <ion-item color="dark" lines="none">
+          <ion-label
+            ><img src="../../../assets/icon/Message.svg" alt=""
+          /></ion-label>
+          <ion-input placeholder="Email" class="formStyle"></ion-input>
+        </ion-item>
 
-        <button type="submit" class="btn buttonStyle">Login</button>
+        <ion-item color="dark" lines="none">
+          <ion-label
+            ><img src="../../../assets/icon/Lock.svg" alt=""
+          /></ion-label>
+          <ion-input placeholder="Password" class="formStyle"></ion-input>
+          <ion-label
+            ><img src="../../../assets/icon/Hide-Password.svg" alt=""
+          /></ion-label>
+        </ion-item>
+
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="5" class="forgetStyle"
+              >Forgot your password?</ion-col
+            >
+          </ion-row>
+        </ion-grid>
+
+        <ion-item class="ion-justify-content-center" lines="none" color="dark">
+          <div>
+            <button type="submit" class="btn buttonStyle">Login</button>
+          </div>
+        </ion-item>
       </form>
 
       <div class="mt-4">
-
         <hr />
-
       </div>
 
-      <div>
-        <div class="d-flex">
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="2" class="border ion-text-center me-4 rounded"
+            ><img src="../../../assets/icon/google.png" alt=""
+          /></ion-col>
+          <ion-col size="2" class="border ion-text-center rounded"
+            ><img src="../../../assets/icon/facebook 1.svg" alt=""
+          /></ion-col>
+        </ion-row>
+      </ion-grid>
 
-          <div>
-
-          </div>
-          <div></div>
-        </div>
-      </div>
-
-
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col class="endText ion-text-center mt-2">
+              Don't have an account yet?
+              <span class="registerStyle">Register</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
-
   </div>
 </ion-content>

@@ -1,21 +1,11 @@
-.text1 {
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
-  width: 80px;
-  height: 24px;
-}
 
 .text2 {
   font-family: Poppins;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 30px; /* 150% */
-  width: 154px;
-  height: 30px;
+  line-height: 30px;
+
 }
 
 .formStyle {
@@ -49,7 +39,7 @@ font-family: Poppins;
 font-size: 16px;
 font-style: normal;
 font-weight: 700;
-line-height: 24px; /* 150% */
+line-height: 24px;
 }
 
 hr {
@@ -69,4 +59,42 @@ hr:after {
   top: -13px;
   color: #000;
   
+}
+
+.ion-margin-top {
+
+  margin-top: 20px;
+}
+
+ion-input {
+
+  --border-color:red
+}
+
+.widthStyle {
+
+  width: 350px;
+}
+
+.endText {
+
+  color: var(--Black-color, #1D1617);
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 150% */
+}
+
+.registerStyle {
+
+  background: var(--Purple-Linear, linear-gradient(274deg, #C58BF2 0%, #EEA4CE 124.45%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px;
 }
