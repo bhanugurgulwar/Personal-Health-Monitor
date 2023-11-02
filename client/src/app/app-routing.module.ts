@@ -6,17 +6,23 @@ import { LoginPageModule } from './pages/login/login.module';
 import { LoginPage } from './pages/login/login.page';
 
 const routes: Routes = [
-  
+
   {
 
-    path:'',
-    redirectTo:'auth/login',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'auth/login',
+    pathMatch: 'full'
   }
   ,
   {
-    path:'auth/login',
-    component:LoginPage
+    path: 'auth/login',
+    component: LoginPage
+  },
+
+  {
+
+    path:'auth/register',
+    component:RegisterPage
   }
 
 ];
