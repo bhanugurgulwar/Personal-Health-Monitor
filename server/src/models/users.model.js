@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const { Schema } = mongoose;
+const validator = require("validator");
 
-const gender =['male','female'];
+const gender = ["male", "female"];
 
 const userSchema = mongoose.Schema(
   {
@@ -20,26 +20,29 @@ const userSchema = mongoose.Schema(
       unique: true,
       trim: true,
     },
-    gender:{
+    gender: {
       type: String,
       enum: gender,
-      required:true
+      required: true,
     },
-    dob:{
-      type:Date,
-      required:true
+    dob: {
+      type: Date,
+      // required: true,
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required!"],
       unique: true,
       trim: true,
       lowercase: true,
+      validate: [validator.isEmail, "Please enter valid email!"],
     },
     password: {
       type: String,
-      required: [true, "Password is required!"],
       trim: true,
+      minlength: 8,
+      required: [true, "Password is required!"],
+      select: false
     },
     isEmailVerified: {
       type: Boolean,
@@ -57,20 +60,18 @@ const userSchema = mongoose.Schema(
   }
 );
 
-userSchema.methods.isPasswordMatch = async function (password) {
-  const user = this;
-  return bcrypt.compare(password, user.password);
-};
 
 userSchema.pre("save", async function (next) {
   const user = this;
-
   if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 12);
   }
-
   next();
 });
+
+userSchema.methods.isPasswordMatch = async function (reqPwd, dbPwd) {
+  return await bcrypt.compare(reqPwd, dbPwd);
+};
 
 const User = mongoose.model("User", userSchema);
 

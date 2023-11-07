@@ -2,7 +2,7 @@ const express = require("express");
 const routes = require("./routes");
 const morgan = require("morgan");
 const ApiError = require("./utils/ApiError");
-const errorHandler = require("./middlewares/error");
+const { errorHandler } = require("./middlewares/error");
 
 const app = express();
 
