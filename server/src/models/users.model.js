@@ -44,7 +44,7 @@ const userSchema = mongoose.Schema(
       trim: true,
       minlength: 8,
       required: [true, "Password is required!"],
-      select: false
+      select: false,
     },
     isEmailVerified: {
       type: Boolean,
@@ -62,11 +62,10 @@ const userSchema = mongoose.Schema(
   }
 );
 
-
 userSchema.pre("save", async function (next) {
   const user = this;
   if (user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 12);
+    user.password = await bcrypt.hash(user.password, 8);
   }
   next();
 });

@@ -11,7 +11,7 @@ const loginWithUserNameAndPassword = async (userName, password) => {
   }
 
   if (!(await user.isPasswordMatch(password, user.password))) {
-    throw new ApiError("Password does not match!", httpStatus.UNAUTHORIZED);
+    throw new ApiError(httpStatus.UNAUTHORIZED, "Password does not match!");
   }
 
   return await user;
