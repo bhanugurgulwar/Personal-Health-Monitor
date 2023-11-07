@@ -1,0 +1,29 @@
+ion-card {
+    // --background: #ff3700;
+    // --color: #9efff0;
+  border-radius: 15px
+  // --ion-background-color: #ff3700;
+}
+  
+  ion-card-title {
+    // --color: #52ffe4;
+  }
+  
+  ion-card-subtitle {
+    // --color: #d1fff8;
+  }
+
+  ion-col {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: baseline;
+    text-align:justify;
+  }
+
+  ion-row {
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  
