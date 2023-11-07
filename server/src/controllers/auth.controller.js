@@ -1,29 +1,38 @@
 const httpStatus = require("http-status");
-const { authService, userService } = require("../services/index");
+
+const { AuthService, UserService, TokenService } = require("../services");
 const ApiError = require("../utils/ApiError");
 const catchAsync = require("../utils/catchAsync");
-
-const User = require("../models");
 
 const register = catchAsync(async (req, res, next) => {
   const userBody = req.body;
 
-  const user = await userService.createUser(userBody);
+  const user = await UserService.createUser(userBody);
+  
   if (!user) {
     return next(new ApiError(httpStatus.BAD_REQUEST, error));
   }
-  res.status(httpStatus.CREATED).send(user);
+
+  res.status(httpStatus.CREATED).json({
+    status: "success",
+    data: user,
+  });
 });
 
 const login = catchAsync(async (req, res, next) => {
   const { userName, password } = req.body;
 
-  const user = await authService.loginWithUserNameAndPassword(
+  const user = await AuthService.loginWithUserNameAndPassword(
     userName,
     password
   );
+
+  const { token, expires } = await TokenService.generateAuthToken(user);
+
   res.send({
-    user,
+    status: "success",
+    token,
+    expires,
   });
 });
 

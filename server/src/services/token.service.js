@@ -12,6 +12,7 @@ const generateAuthToken = async (user) => {
     process.env.JWT_ACCESS_EXPIRATION_MINUTES,
     "minutes"
   );
+  
   const accessToken = generateToken(user._id, tokenExpires);
 
   return {
