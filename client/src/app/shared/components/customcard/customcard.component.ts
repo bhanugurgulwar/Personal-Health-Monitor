@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'customcard',
@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomcardComponent  implements OnInit {
 
+  @Input() cardDetails :any|null="";
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.cardDetails)
+  }
 
 }

@@ -16,6 +16,6 @@ import { CustomcardComponent } from 'src/app/shared/components/customcard/custom
     IonicModule,
     DashboardPageRoutingModule
   ],
-  declarations: [DashboardPage,CustomcardComponent]
+  declarations: [DashboardPage]
 })
 export class DashboardPageModule {}
