@@ -1,7 +1,7 @@
 const { User } = require("../models");
 
-const createUser = (userbody) => {
-  return User.create(userbody);
+const createUser = (userBody) => {
+  return User.create(userBody);
 };
 
 const getUserByEmail = async (email) => {

@@ -8,14 +8,16 @@ const register = catchAsync(async (req, res, next) => {
   const userBody = req.body;
 
   const user = await UserService.createUser(userBody);
-  
+
   if (!user) {
-    return next(new ApiError(httpStatus.BAD_REQUEST, error));
+    return next(new ApiError(httpStatus.BAD_REQUEST, "Error!"));
   }
+  const { token, expires } = await TokenService.generateAuthToken(user);
 
   res.status(httpStatus.CREATED).json({
-    status: "success",
+    token,
     data: user,
+    expires,
   });
 });
 
@@ -30,7 +32,6 @@ const login = catchAsync(async (req, res, next) => {
   const { token, expires } = await TokenService.generateAuthToken(user);
 
   res.send({
-    status: "success",
     token,
     expires,
   });
