@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthserviceService } from 'src/app/shared/services/authservice.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,9 @@ export class RegisterPage implements OnInit {
 
 
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,
+    private authservice:AuthserviceService
+    ) { }
 
 
 
@@ -32,6 +35,16 @@ export class RegisterPage implements OnInit {
 
   registerSubmit(){
     console.log(this.registerForm.value)
+    let regsiterData = this.registerForm.value
+    this.authservice.registerService("",regsiterData).subscribe({
+      next:(res)=>{
+        console.log(res)
+      },
+      error:(err)=>{
+        console.log(err);
+        
+      }
+    })
   }
 
    
