@@ -2,9 +2,10 @@
   "name": "phm-server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "SET NODE_ENV=development & nodemon src/index.js",
+    "prod": "SET NODE_ENV=production & nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,7 +20,8 @@
     "moment": "^2.29.4",
     "mongoose": "^7.6.1",
     "morgan": "^1.10.0",
-    "passport": "^0.6.0"
+    "passport": "^0.6.0",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
