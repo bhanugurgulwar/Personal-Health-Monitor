@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" color="dark">
+<ion-content [fullscreen]="true" >
   <ion-grid>
     <ion-row class="ion-justify-content-center">
       <ion-col class="ion-margin-top" size="6">
@@ -12,33 +12,46 @@
 
   <div class="d-flex justify-content-center mt-3">
     <div class="widthStyle">
-      <form>
-        <ion-item color="dark" lines="none">
+      <form [formGroup]="registerForm">
+        <ion-item  lines="none">
           <ion-label class="me-1"
             ><img src="../../../assets/icon/Profile.svg" alt=""
           /></ion-label>
-          <ion-input placeholder="First Name" class="formStyle"></ion-input>
+          <ion-input placeholder="First Name" formControlName="firstName" class="formStyle"></ion-input>
         </ion-item>
 
-        <ion-item color="dark" lines="none">
+        <ion-item  lines="none">
           <ion-label class="me-1"
             ><img src="../../../assets/icon/Profile.svg" alt=""
           /></ion-label>
-          <ion-input placeholder="Last Name" class="formStyle"></ion-input>
+          <ion-input placeholder="Last Name" formControlName="lastName" class="formStyle"></ion-input>
         </ion-item>
 
-        <ion-item color="dark" lines="none">
+        <ion-item  lines="none">
           <ion-label class="me-1"
             ><img src="../../../assets/icon/Message.svg" alt=""
           /></ion-label>
-          <ion-input placeholder="Email" class="formStyle"></ion-input>
+          <ion-input placeholder="Email" formControlName="email" class="formStyle"></ion-input>
         </ion-item>
 
-        <ion-item color="dark" lines="none">
+        <ion-item  lines="none">
           <ion-label class="me-1"
             ><img src="../../../assets/icon/Lock.svg" alt=""
           /></ion-label>
-          <ion-input placeholder="Password" class="formStyle"></ion-input>
+          <ion-input placeholder="Password" formControlName="password" class="formStyle"></ion-input>
+          <ion-label
+            ><img
+              src="../../../assets/icon/Hide-Password.svg"
+              alt=""
+              class="me-4"
+          /></ion-label>
+        </ion-item>
+
+        <ion-item  lines="none">
+          <ion-label class="me-1"
+            ><img src="../../../assets/icon/Lock.svg" alt=""
+          /></ion-label>
+          <ion-input placeholder="Confirm password" formControlName="confirmPassword" class="formStyle"></ion-input>
           <ion-label
             ><img
               src="../../../assets/icon/Hide-Password.svg"
@@ -49,7 +62,7 @@
 
         <ion-grid>
           <ion-row>
-            <ion-col size="1" color="dark">
+            <ion-col size="1" >
               <ion-checkbox class="border"></ion-checkbox>
             </ion-col>
             <ion-col size="8" class="note ps-2"
@@ -62,10 +75,9 @@
           </ion-row>
         </ion-grid>
 
-        <ion-item class="ion-justify-content-center" lines="none" color="dark">
-          <div>
-            <button type="submit" class="btn buttonStyle">Register</button>
-          </div>
+        <ion-item class="ion-justify-content-center" lines="none" >
+            <!-- <button type="submit" class="btn buttonStyle">Register</button> -->
+            <ion-button  size="large" (click)="registerSubmit()">Register</ion-button>
         </ion-item>
       </form>
 
