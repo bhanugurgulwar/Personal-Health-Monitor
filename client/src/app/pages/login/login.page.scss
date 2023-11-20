@@ -18,28 +18,13 @@
 
 .forgetStyle {
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
+  margin-top: 10px;
   font-weight: 500;
   line-height: 18px; /* 150% */
   text-decoration-line: underline;
   color: #ada4a5;
-}
-
-.buttonStyle {
-
-  width: 315px;
-height: 60px;
-flex-shrink: 0;
-border-radius: 99px;
-background: var(--Blue-Linear, linear-gradient(274deg, #92A3FD 0%, #9DCEFF 124.45%));
-margin-top: 350px;
-color: var(--white-color, #FFF);
-font-family: Poppins;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: 24px;
 }
 
 hr {
@@ -97,4 +82,9 @@ font-size: 14px;
 font-style: normal;
 font-weight: 500;
 line-height: 21px;
+}
+
+.buttonGap {
+
+  margin-top: 350px;
 }
