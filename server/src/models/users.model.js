@@ -16,12 +16,6 @@ const userSchema = mongoose.Schema(
       trim: true,
       required: [true, "last name is required!"],
     },
-    userName: {
-      type: String,
-      required: [true, "Username is required!"],
-      unique: true,
-      trim: true,
-    },
     gender: {
       type: String,
       enum: gender,
