@@ -36,7 +36,7 @@ export class RegisterPage implements OnInit {
   registerSubmit(){
     console.log(this.registerForm.value)
     let regsiterData = this.registerForm.value
-    this.authservice.registerService("",regsiterData).subscribe({
+    this.authservice.registerService("auth/register",regsiterData).subscribe({
       next:(res)=>{
         console.log(res)
       },
