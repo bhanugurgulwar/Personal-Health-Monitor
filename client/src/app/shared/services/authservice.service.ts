@@ -13,8 +13,6 @@ export class AuthserviceService {
 
     registerService(url: string, registerData:any){
       return this.http.post(this.SiteUrl + url, registerData)
-
-      
     }
 
 }
