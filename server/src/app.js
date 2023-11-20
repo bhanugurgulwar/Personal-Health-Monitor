@@ -12,6 +12,9 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+// Enable cors to accept requests from any frontend domain, all possible HTTP methods, and necessary items in request headers
+app.options('*', cors());
+
 app.use("/api", routes);
 
 //default route
