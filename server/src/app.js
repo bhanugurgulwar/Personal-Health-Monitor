@@ -3,6 +3,7 @@ const routes = require("./routes");
 const morgan = require("morgan");
 const ApiError = require("./utils/ApiError");
 const { errorHandler } = require("./middlewares/error");
+const cors = require("cors")
 
 const app = express();
 
@@ -13,7 +14,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Enable cors to accept requests from any frontend domain, all possible HTTP methods, and necessary items in request headers
-app.options('*', cors());
+app.use(cors());
 
 app.use("/api", routes);
 

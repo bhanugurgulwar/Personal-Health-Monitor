@@ -27,6 +27,7 @@ export class RegisterPage implements OnInit {
     this.registerForm= this.fb.group({
       firstName:['',Validators.required],
       lastName:['',Validators.required],
+      gender:['',Validators.required],
       email:['',(Validators.required,Validators.email)],
       password:['',Validators.required],
       confirmPassword:['',Validators.required]
@@ -34,9 +35,11 @@ export class RegisterPage implements OnInit {
   }
 
   registerSubmit(){
+    delete this.registerForm.value.confirmPassword;
     console.log(this.registerForm.value)
+
     let regsiterData = this.registerForm.value
-    this.authservice.registerService("auth/register",regsiterData).subscribe({
+    this.authservice.registerService("/auth/register",regsiterData).subscribe({
       next:(res)=>{
         console.log(res)
       },

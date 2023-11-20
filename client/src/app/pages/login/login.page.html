@@ -12,19 +12,19 @@
 
   <div class="d-flex justify-content-center mt-3">
     <div class="widthStyle">
-      <form>
+      <form [formGroup]="loginForm">
         <ion-item lines="none">
           <ion-label
             ><img src="../../../assets/icon/Message.svg" alt=""
           /></ion-label>
-          <ion-input placeholder="Email" class="formStyle"></ion-input>
+          <ion-input placeholder="Email" formControlName="email" class="formStyle"></ion-input>
         </ion-item>
 
         <ion-item lines="none">
           <ion-label
             ><img src="../../../assets/icon/Lock.svg" alt=""
           /></ion-label>
-          <ion-input placeholder="Password" class="formStyle"></ion-input>
+          <ion-input placeholder="Password" formControlName="password" class="formStyle"></ion-input>
           <ion-label
             ><img src="../../../assets/icon/Hide-Password.svg" alt=""
           /></ion-label>
@@ -40,7 +40,7 @@
 
         <ion-item class="ion-justify-content-center" lines="none">
           <div>
-            <button type="submit" class="btn buttonStyle">Login</button>
+            <button type="submit" (click)="loginSubmit()" class="btn buttonStyle">Login</button>
           </div>
         </ion-item>
       </form>
