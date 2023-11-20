@@ -25,12 +25,14 @@
             ><img src="../../../assets/icon/Profile.svg" alt=""
           /></ion-label>
           <ion-input placeholder="Last Name" formControlName="lastName" class="formStyle"></ion-input>
+          <ion-input placeholder="Last Name" formControlName="lastName" class="formStyle"></ion-input>
         </ion-item>
 
         <ion-item  class="mt-2" lines="none">
           <ion-label class="me-1"
             ><img src="../../../assets/icon/Profile.svg" alt=""
           /></ion-label>
+          <ion-input placeholder="Gender" formControlName="gender" class="formStyle"></ion-input>
           <ion-input placeholder="Gender" formControlName="gender" class="formStyle"></ion-input>
         </ion-item>
 
@@ -59,6 +61,7 @@
             ><img src="../../../assets/icon/Lock.svg" alt=""
           /></ion-label>
           <ion-input placeholder="Confirm password" formControlName="confirmPassword" class="formStyle"></ion-input>
+          <ion-input placeholder="Confirm password" formControlName="confirmPassword" class="formStyle"></ion-input>
           <ion-label
             ><img
               src="../../../assets/icon/Hide-Password.svg"
@@ -66,7 +69,6 @@
               class="me-4"
           /></ion-label>
         </ion-item>
-
         
 
         <ion-grid>
@@ -82,10 +84,12 @@
               ></ion-col
             >
           </ion-row>
-        </ion-grid>
+        </ion-grid> 
 
-        <ion-item class="ion-justify-content-center buttonGap" lines="none" >
-            <ion-button  (click)="registerSubmit()">Register</ion-button>
+        <ion-item class="ion-justify-content-center" lines="none" color="dark">
+          <div>
+            <button type="submit" class="btn buttonStyle">Register</button>
+          </div>
         </ion-item>
       </form>
 
