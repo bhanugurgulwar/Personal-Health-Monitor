@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthserviceService } from 'src/app/shared/services/authservice.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
 
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
 
   constructor(private fb:FormBuilder,
     private authservice:AuthserviceService,
-    private storage:StorageService) { }
+    private storage:StorageService,
+    private router:Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -33,6 +35,7 @@ export class LoginPage implements OnInit {
       next:(res:any)=>{
         console.log(res)
         this.storage.set("userToken",res?.token);
+        this.router.navigate(["tabs"]);
       },
       error:(err)=>{
         console.log(err);
