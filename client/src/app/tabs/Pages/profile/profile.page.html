@@ -1,13 +1,118 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-start"><ion-icon name="chevron-back-outline" size="default"></ion-icon></ion-col>
+      <ion-col><ion-title>Profile</ion-title></ion-col>
+      <ion-col class="ion-text-end"><ion-icon name="ellipsis-horizontal-outline" size="default"></ion-icon></ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- PROFILE INFO -->
+  <ion-grid style="margin-bottom: 1.85rem;">
+    <ion-row class="ion-margin-bottom">
+      <ion-col size="3" class="ion-text-start">
+        <img src="../../../assets/images/Latest-Pic.svg" />
+      </ion-col>
+      <ion-col size="5" class="ion-text-start">
+        <ion-text class="profile-name">Stefani Wong</ion-text>
+        <br />
+        <ion-text class="info-text">Lose a Fat Program</ion-text>
+      </ion-col>
+      <ion-col size="4" class="ion-text-end">
+        <ion-button>Edit</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="3" class="ion-text-center">
+        <ion-text class="profile-attr">
+          {{'180 cm'}}
+          <br />
+          <ion-text class="info-text"> Height </ion-text>
+        </ion-text>
+      </ion-col>
+      <ion-col size="3" class="ion-text-center">
+        <ion-text class="profile-attr">
+          {{'65 kg'}}
+          <br />
+          <ion-text class="info-text"> Weight </ion-text>
+        </ion-text>
+      </ion-col>
+      <ion-col size="3" class="ion-text-center">
+        <ion-text class="profile-attr">
+          {{'22 yo'}}
+          <br />
+          <ion-text class="info-text"> Age </ion-text>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- ACCOUNT ACTIONS -->
+  <ion-card>
+    <ion-grid>
+      <ion-row class="ion-text-start ion-margin-bottom">
+        <ion-text class="card-title">Account</ion-text>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Profile.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Personal Data'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Document.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Achievement'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Graph.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Activity History'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Chart.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Workout Progress'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <!-- NOTIFICATION -->
+  <ion-card>
+    <ion-grid>
+      <ion-row class="ion-text-start ion-margin-bottom">
+        <ion-text class="card-title">Notification</ion-text>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Notification.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Pop-up Notification'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-toggle></ion-toggle></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <!-- OTHER -->
+    <ion-card>
+    <ion-grid>
+      <ion-row class="ion-text-start ion-margin-bottom">
+        <ion-text class="card-title">Other</ion-text>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Message.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Contact Us'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Shield Done.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Privacy Policy'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-bottom">
+        <ion-col class="ion-text-start" size="2"><ion-icon src="../../../assets/icons/Setting.svg"></ion-icon></ion-col>
+        <ion-col class="ion-text-start" size="8"><ion-text> {{'Settings'}} </ion-text></ion-col>
+        <ion-col class="ion-text-end" size="2"><ion-icon src="../../../assets/icons/Arrow - Right 2.svg"></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>
