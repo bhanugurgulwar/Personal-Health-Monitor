@@ -5,7 +5,7 @@ import { RegisterPage } from './auth/register/register.page';
 import { LoginPageModule } from './auth/login/login.module';
 import { LoginPage } from './auth/login/login.page';
 import { TabsPageModule } from './tabs/tabs.module';
-import authGuard from './shared/services/auth.guard';
+import authGuard, { authGuardLogin } from './shared/services/auth.guard';
 
 const routes: Routes = [
 
@@ -18,19 +18,16 @@ const routes: Routes = [
   ,
   {
     path: 'auth/login',
-    component: LoginPage
+    component: LoginPage,
+    canActivate:[authGuardLogin]
   },
 
   {
 
     path:'auth/register',
-    component:RegisterPage
+    component:RegisterPage,
+    canActivate:[authGuardLogin]
   },
-  // {
-  //   path:"tabs",
-  //   component:TabsPageModule,
-  //   canActivate:[authGuard]
-  // },
   {
     path: 'tabs',
     loadChildren: () =>
