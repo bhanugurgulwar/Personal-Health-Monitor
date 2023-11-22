@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { RegisterPageModule } from './pages/register/register.module';
-import { RegisterPage } from './pages/register/register.page';
-import { LoginPageModule } from './pages/login/login.module';
-import { LoginPage } from './pages/login/login.page';
+import { RegisterPageModule } from './auth/register/register.module';
+import { RegisterPage } from './auth/register/register.page';
+import { LoginPageModule } from './auth/login/login.module';
+import { LoginPage } from './auth/login/login.page';
 import { TabsPageModule } from './tabs/tabs.module';
 import authGuard from './shared/services/auth.guard';
 
