@@ -24,3 +24,25 @@ export default function authGuard() {
     });
   });
 }
+
+export function authGuardLogin() {
+
+  const router = inject(Router);
+  const storageService = inject(StorageService);
+  
+  return new Promise((resolve, reject) => {
+    from(storageService.get("userToken")).subscribe({
+      next: (token: any) => {
+        if (!token) {
+          resolve(true);
+        } else {
+          router.navigateByUrl("/tabs")
+          reject();
+        }
+      }, error: (err: any) => {
+        router.navigateByUrl("/tabs")
+        reject();
+      }
+    });
+  });
+}
