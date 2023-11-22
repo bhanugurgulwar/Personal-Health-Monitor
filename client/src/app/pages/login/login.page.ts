@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthserviceService } from 'src/app/shared/services/authservice.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginPage implements OnInit {
   loginForm! : FormGroup;
 
   constructor(private fb:FormBuilder,
-    private authservice:AuthserviceService) { }
+    private authservice:AuthserviceService,
+    private storage:StorageService) { }
 
   ngOnInit() {
     this.initForm();
@@ -28,8 +30,9 @@ export class LoginPage implements OnInit {
   loginSubmit(){
     console.log(this.loginForm.value)
     this.authservice.loginService("/auth/login",this.loginForm.value).subscribe({
-      next:(res)=>{
+      next:(res:any)=>{
         console.log(res)
+        this.storage.set("userToken",res?.token);
       },
       error:(err)=>{
         console.log(err);

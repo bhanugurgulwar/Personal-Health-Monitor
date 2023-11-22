@@ -4,6 +4,8 @@ import { RegisterPageModule } from './pages/register/register.module';
 import { RegisterPage } from './pages/register/register.page';
 import { LoginPageModule } from './pages/login/login.module';
 import { LoginPage } from './pages/login/login.page';
+import { TabsPageModule } from './tabs/tabs.module';
+import authGuard from './shared/services/auth.guard';
 
 const routes: Routes = [
 
@@ -23,8 +25,20 @@ const routes: Routes = [
 
     path:'auth/register',
     component:RegisterPage
-  }
-
+  },
+  // {
+  //   path:"tabs",
+  //   component:TabsPageModule,
+  //   canActivate:[authGuard]
+  // },
+  {
+    path: 'tabs',
+    loadChildren: () =>
+      import('./tabs/tabs.module').then(
+        (m) => m.TabsPageModule
+      ),
+    canActivate:[authGuard]
+  },
 ];
 
 @NgModule({
