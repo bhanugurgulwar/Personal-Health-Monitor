@@ -1,0 +1,90 @@
+
+.text2 {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+
+}
+
+.formStyle {
+  width: 315px;
+  height: 48px;
+  flex-shrink: 0;
+  color: #ada4a5;
+  border: none;
+}
+
+.forgetStyle {
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  margin-top: 10px;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+  text-decoration-line: underline;
+  color: #ada4a5;
+}
+
+hr {
+  border: none;
+  border-top: 3px double #333;
+  color: #333;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+}
+
+hr:after {
+  background: #fff;
+  content: 'Or';
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+  color: #000;
+  
+}
+
+.ion-margin-top {
+
+  margin-top: 20px;
+}
+
+ion-input {
+
+  --border-color:red
+}
+
+.widthStyle {
+
+  width: 350px;
+}
+
+.endText {
+
+  color: var(--Black-color, #1D1617);
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 150% */
+}
+
+.registerStyle {
+
+  background: var(--Purple-Linear, linear-gradient(274deg, #C58BF2 0%, #EEA4CE 124.45%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px;
+}
+
+.buttonGap {
+
+  margin-top: 350px;
+}

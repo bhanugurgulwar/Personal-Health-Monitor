@@ -9,30 +9,50 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'prefix', //default
-    redirectTo: 'dashboard'
+    redirectTo: 'home',
   },
-        {
-          path: 'dashboard',
-          loadChildren: () => import('./Pages/dashboard/dashboard.module').then(m=>m.DashboardPageModule)
-        },
-        // {
-        //   path: 'tasks',
-        //   // loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-        // },
+  {
+    path: '',
+    component:TabsPage,
+    // loadChildren: () =>
+    //   import('../tabs/tabs.module').then(
+    //     (m) => m.TabsPageModule
+    //   ),
+      children:[
+          {
+            path: 'home',
+            loadChildren: () =>
+              import('./Pages/dashboard/dashboard.module').then(
+                (m) => m.DashboardPageModule
+              ),
+          },
         {
           path: 'track',
-          loadChildren: () => import('./Pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
+          loadChildren: () =>
+            import('./Pages/notifications/notifications.module').then(
+              (m) => m.NotificationsPageModule
+            ),
         },
         {
           path: 'profile',
-          loadChildren: () => import('./Pages/profile/profile.module').then(m => m.ProfilePageModule)
+          loadChildren: () =>
+            import('./Pages/profile/profile.module').then((m) => m.ProfilePageModule),
         },
-  {
-    path: 'notifications',
-    loadChildren: () => import('./Pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
-  }
+        {
+          path: 'notifications',
+          loadChildren: () =>
+            import('./Pages/notifications/notifications.module').then(
+              (m) => m.NotificationsPageModule
+            ),
+        },
+      ]
+  },
+  // {
+  //   path: 'tasks',
+  //   // loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+  // },
+ 
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

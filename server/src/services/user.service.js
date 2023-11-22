@@ -1,7 +1,7 @@
-const User = require("../models/users.model");
+const { User } = require("../models");
 
-const createUser = (userbody) => {
-  return User.create(userbody);
+const createUser = (userBody) => {
+  return User.create(userBody);
 };
 
 const getUserByEmail = async (email) => {
@@ -11,10 +11,10 @@ const getUserByEmail = async (email) => {
   return user;
 };
 
-const getUserByUserName = async (userName) => {
+const  getUserByUserName = async (userName) => {
   const user = await User.findOne({
     userName: userName,
-  });
+  }).select("+password");
 
   return user;
 };
