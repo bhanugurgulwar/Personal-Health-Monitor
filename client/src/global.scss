@@ -25,24 +25,7 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-ion-button{
-    width: 315px;
-    height: 60px;
-    flex-shrink: 0;
-    border-radius: 99px;
-  
-    // flex-shrink: 0;
-    --border-radius:25px;
-    --background: var(
-      --Blue-Linear,
-      linear-gradient(274deg, #92a3fd 0%, #9dceff 124.45%)
-    );
-    color: var(--white-color, #fff);
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    text-transform: none;
-  }
-
-
+*,
+body {
+  font-family: Poppins;
+}
