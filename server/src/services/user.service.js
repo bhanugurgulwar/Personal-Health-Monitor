@@ -4,6 +4,11 @@ const createUser = (userBody) => {
   return User.create(userBody);
 };
 
+const getUsers = async (req, res) => {
+  const users = await User.find();
+  return users;
+};
+
 const getUserByEmail = async (email) => {
   const user = await User.findOne({
     email,
@@ -11,7 +16,7 @@ const getUserByEmail = async (email) => {
   return user;
 };
 
-const  getUserByUserName = async (userName) => {
+const getUserByUserName = async (userName) => {
   const user = await User.findOne({
     userName: userName,
   }).select("+password");
@@ -21,6 +26,7 @@ const  getUserByUserName = async (userName) => {
 
 module.exports = {
   createUser,
+  getUsers,
   getUserByEmail,
   getUserByUserName,
 };
