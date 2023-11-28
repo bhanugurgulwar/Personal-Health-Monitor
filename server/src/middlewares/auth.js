@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
 const util = require("util");
 const ApiError = require("../utils/ApiError");
+const httpStatus = require("http-status");
 
 const verifyToken = async (req, res, next) => {
-  const header = req.headers.authorization;
+  const header = req.headers["authorization"];
   let token;
 
   if (header && header.startsWith("Bearer")) {
@@ -18,6 +19,8 @@ const verifyToken = async (req, res, next) => {
     token,
     process.env.JWT_SECRET_KEY
   );
+
+  req.userId = decodedToken.id;
 
   next();
 };
