@@ -18,8 +18,14 @@ const getUserByEmail = async (email) => {
 
 const getUserByUserName = async (userName) => {
   const user = await User.findOne({
-    userName: userName,
+    userName,
   }).select("+password");
+
+  return user;
+};
+
+const getUserById = async (userId) => {
+  const user = await User.findById(userId);
 
   return user;
 };
@@ -29,4 +35,5 @@ module.exports = {
   getUsers,
   getUserByEmail,
   getUserByUserName,
+  getUserById,
 };
